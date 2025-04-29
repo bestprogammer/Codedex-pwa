@@ -1,25 +1,22 @@
-const CACHE_NAME = "codedex-cache-v1";
-const OFFLINE_URL = "offline.html";
-
-self.addEventListener("install", (event) => {
+self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
+    caches.open('codedex-cache-v1').then(cache => {
       return cache.addAll([
-        "offline.html",
-        "icon-192.png",
-        "icon-512.png"
+        './',
+        './index.html',
+        './offline.html',
+        './styles.css',
+        './icon-192.png',
+        './icon-512.png'
       ]);
     })
   );
-  console.log("✅ Service Worker installiert");
 });
 
-self.addEventListener("fetch", (event) => {
-  if (event.request.mode === "navigate") {
-    event.respondWith(
-      fetch(event.request).catch(() => {
-        return caches.match(OFFLINE_URL);
-      })
-    );
-  }
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    fetch(event.request).catch(() => caches.match(event.request).then(response => {
+      return response || caches.match('./offline.html');
+    }))
+  );
 });
