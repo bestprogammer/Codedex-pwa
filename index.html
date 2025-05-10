@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>codedex.io</title>
 
-  <!-- Manifest & Apple-Setup -->
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="apple-touch-icon" href="/icon-192.png" />
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Apple Support -->
+  <link rel="apple-touch-icon" href="icon-192.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-
-  <title>codedex.io</title>
+  <meta name="theme-color" content="#007aff" />
 </head>
 <body>
 
-  <!-- Titel nur im PWA-Modus sichtbar -->
+  <!-- Nur im PWA-Modus sichtbar -->
   <h1 id="title" style="display: none;">codedex.io</h1>
 
-  <!-- Optional: Info für Safari-User -->
+  <!-- Hinweis im Browser -->
   <p id="info">Jetzt zum Home-Bildschirm hinzufügen und wie eine App nutzen!</p>
 
-  <!-- Skript ganz am Ende -->
+  <!-- Logik -->
   <script>
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
                          window.navigator.standalone === true;
