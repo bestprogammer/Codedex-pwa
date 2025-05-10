@@ -3,35 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>codedex.io</title>
+  <title>codedex.io Launcher</title>
 
   <!-- Manifest -->
   <link rel="manifest" href="manifest.json" />
 
-  <!-- Apple Support -->
+  <!-- Apple PWA Support -->
   <link rel="apple-touch-icon" href="icon-192.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="theme-color" content="#007aff" />
 </head>
 <body>
+  <h1>Willkommen bei Codedex!</h1>
+  <p>Bitte zum Home-Bildschirm hinzufügen, um wie eine App zu starten.</p>
 
-  <!-- Nur im PWA-Modus sichtbar -->
-  <h1 id="title" style="display: none;">codedex.io</h1>
-
-  <!-- Hinweis im Browser -->
-  <p id="info">Jetzt zum Home-Bildschirm hinzufügen und wie eine App nutzen!</p>
-
-  <!-- Logik -->
   <script>
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
                          window.navigator.standalone === true;
 
     if (isStandalone) {
-      document.getElementById("title").style.display = "block";
-      document.getElementById("info").style.display = "none";
+      // Nur wenn über den Homescreen gestartet:
+      window.location.href = "https://www.codedex.io";
     }
   </script>
-
 </body>
 </html>
