@@ -19,12 +19,8 @@
   <p>Bitte zum Home-Bildschirm hinzufügen, um wie eine App zu starten.</p>
 
   <script>
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
-                         window.navigator.standalone === true;
-
-    if (isStandalone) {
-      // Nur wenn über den Homescreen gestartet:
-      <meta http-equiv="refresh" content="0; url=https://codedex.io" />
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+      window.location.href = "https://codedex.io";
     }
   </script>
 </body>
